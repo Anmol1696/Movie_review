@@ -29,6 +29,14 @@ def form_sentiment_vs_file_name_data_frame(data_frame, write_to_file):
     if write_to_file:
         sentiment_data_frame.to_csv(write_to_file)
 
+def form_processed_word_frequency_data_frame(processed_words_frequency_dict):
+    """
+        Form a data frame from dict of the form {'neg' : {word : fre,..}, 'pos' : {word:fre,..}}
+        Index is the word and columns are neg or pos which has the frequency
+    """
+    frequency_data_frame = pandas.DataFrame.from_dict(processed_words_frequency_dict)
+    return frequency_data_frame
+
 if __name__ == "__main__":
     try:
         raw_file_name = sys.argv[1]
