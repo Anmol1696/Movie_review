@@ -6,6 +6,7 @@ from form_data.pandas_functions import read_pandas_raw_csv, form_processed_word_
 
 import sys
 import pandas
+import numpy
 
 from nltk.stem.snowball import EnglishStemmer
 
@@ -70,9 +71,15 @@ def add_processed_words_to_raw_data_frame(data_frame):
 
     return data_frame, frequency_data_frame
 
-def main_add_processed_words(raw_file_name):
+def main_add_processed_words(raw_file_name, processed_file_name, frequency_file_name):
     data_frame = read_pandas_raw_csv(raw_file_name)
     data_frame, frequency_data_frame = add_processed_words_to_raw_data_frame(data_frame)
+    
+    data_frame.drop('raw_string', axis=1, inplace=True)
+    data_frame.fillna(0, inplace=True)
+    
+    data_frame.to_csv(processed_file_name)
+    frequency_data_frame.to_csv(frequency_file_name)
 
     return data_frame, frequency_data_frame
 
@@ -85,8 +92,11 @@ if __name__ == "__main__":
     """
     try:
         raw_file_name = sys.argv[1]
+        processed_file_name = sys.argv[2]
+        frequency_file_name = sys.argv[3]
     except:
         print '[ERROR] in input'
-    d,f = main_add_processed_words(raw_file_name)
+    d,f = main_add_processed_words(raw_file_name, processed_file_name, frequency_file_name)
     print 'Data frame ->', d
     print 'Frequency -> ', f
+    print numpy.max(f.neg)
