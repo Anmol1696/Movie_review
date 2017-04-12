@@ -33,6 +33,7 @@ def main_form_data_frame(folder_name, data_frame_folder):
     """
     data_frame = get_reviews_and_form_data_frame(folder_name)
     data_frame.to_csv(data_frame_folder)
+    free_ram()
 
 def free_ram():
     """
