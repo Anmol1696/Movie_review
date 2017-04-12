@@ -1,0 +1,5 @@
+http://www.textfixer.com/tutorials/common-english-words.txt
+https://de.dariah.eu/tatom/preprocessing.html
+http://www.nltk.org/howto/collocations.html
+http://pandas.pydata.org/pandas-docs/stable/index.html
+
