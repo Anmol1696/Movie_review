@@ -51,10 +51,9 @@ def add_processed_words_to_raw_data_frame(data_frame):
 
     stop_words = get_stop_words()
 
-    data_frame['processed_words'] = pandas.DataFrame(columns=['processed_words'], dtype=list)
+    data_frame['processed_words'] = pandas.DataFrame(columns=['processed_words'])
 
     for file_name in data_frame.index:
-        print 'file_name ->', file_name 
         temp_process_words = data_frame.get_value(index=file_name, col='raw_string')
         sentiment = data_frame.get_value(index=file_name, col='sentiment')
         temp_process_words = get_stemmed_tokenized_lower(temp_process_words, stop_words)
@@ -65,7 +64,7 @@ def add_processed_words_to_raw_data_frame(data_frame):
             else:
                 processed_words_frequency_dict[sentiment][word] += 1
 
-        data_frame.set_value(value=temp_process_words, index=file_name, col='processed_words')
+        data_frame.set_value(value=' '.join(temp_process_words), index=file_name, col='processed_words')
 
     frequency_data_frame = form_processed_word_frequency_data_frame(processed_words_frequency_dict)
 
