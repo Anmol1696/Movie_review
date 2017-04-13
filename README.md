@@ -221,6 +221,8 @@ One can find all the references in the `refrence.txt` file
 ## Commands Run
 The following are all the commands that were run indoer to get the results
 ```
+    cd Movie_review-master/
+
     python -m form_data.init_data movie_data/ form_data/dataframe/raw_review.csv
     
     python -m form_data.pandas_functions form_data/dataframe/raw_review.csv form_data/dataframe/sentiment_filenames.csv
