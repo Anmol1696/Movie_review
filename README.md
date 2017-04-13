@@ -214,3 +214,6 @@ However we can increase the effiency by using better pre processing. We could us
 More data always help. It might also solve the problem of sparsity to better fit with other models<br>
 One can also use the `frequency_data_frame` to comeup with our own classifier<br>
 For pre-processing, a threshold can be set, such that we consider only the words that have a higer frequency in all of the training data for the predection model. This will reduce the noise greatly<br>
+
+## Reference
+One can find all the references in the `refrence.txt` file
