@@ -24,7 +24,8 @@ This data is from taken from [here](http://www.cs.cornell.edu/people/pabo/movie-
 
 ## Pandas DataFrame
 The module `form_data` contains all the codes that deal with the pandas library. Now I will explaining about each script in this module
-###init_data.py
+
+### init_data.py
 This file contains functions that are used for converting the raw data in `movie_data/` into pandas dataframe.<br>
 The function `main_form_data_frame` reads through the `movie_data/` then goes to `neg/` and `pos/` folders and read all the text files. This data is then converted into pandas data frame of the following format
 ```
@@ -52,3 +53,7 @@ For obtaining `raw_review.csv` we run the following command
 ```
     python -m form_data.init_data movie_data/ form_data/dataframe/raw_review.csv
 ```
+
+#### NOTE
+Time taken to run the above program is around 8 secs
+
