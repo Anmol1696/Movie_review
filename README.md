@@ -1,6 +1,7 @@
 # Movie_review
 ## Problem Statement
-I have solved the Problem Statement B
+I have solved the Problem Statement B<br>
+Check this out on github [here](https://github.com/Anmol1696/Movie_review) or go to https://github.com/Anmol1696/Movie_review<br>
 
 ## Installing Libraries
 The following python were used. In order to install just type `sudo pip install <library>`
@@ -89,4 +90,68 @@ Both the above stated functions `read_pandas_raw_csv` and `form_processed_word_f
 This is the code that is run inorder to form the training and the testing set from the `raw_reviews.csv` file or data frame<br>
 Let us say we want a training 70% testing 30% of the data.(code is hard coded for this %). Let the total size be N.<br> 
 First the `sentiment_filnames.csv` is read and converted to a dataframe. From here we choose randomly with seed.
+`N*0.7*0.5` data are choosen from filenames with `pos` sentiment, rest with `neg` statement <b>ensuring that there is equal representation of the positive and negative cases</b> <br>
 
+Now the testing and the training raw files are kept in the `form_data/dataframe/test/` and `form_data/dataframe/test/` folders. Later other files will be added here.<br>
+Command for forming testing and training data
+```
+    [Format]
+    python -m form_data.form_train_test <raw_review_csv_file> <sentiment_filenames_csv> <raw_train_csv_storage_location> <raw_test_csv_storage_location> <random_seed>
+    
+    [Command that I ran]
+    python -m form_data.form_train_test form_data/dataframe/raw_review.csv form_data/dataframe/sentiment_filenames.csv form_data/dataframe/train/raw_train.csv form_data/dataframe/test/raw_test.csv 15
+
+    #[NOTE]
+    Time taken to run the above command is 2 sec
+```
+
+Note that the random seed that used is `15`. One can use another seed to obtain a different set of training and testing data
+
+
+## Pre Processing
+This consists of all the code needed to preprocess the `raw_string`
+## processing_functions.py
+A script that reads the `raw_review.csv` file or corresponding data frame `raw_data_frame` and forms 2 new data frames namely `frequency_data_frame` and `processed_data_frame`<br>
+First in the `raw_data_frame`'s `raw_string` we perform following functions
+* convert the whole string in lower case
++ remove any non ascii charecter, i.e. this will only contain charecters from `a to z` and space
++ if a single word lenght is less than 1 then ignore it
++ stem all the words using `nltk.stem.snowball.EnglishStemmer`
+
+Now we form a copy of the `raw_data_frame`, append a column of preprocessed string and remove the column of raw string. This data frame is then called `processed_data_frame` and writen to appopriate csv file.<br>
+ So the `processed_data_frame` is of the format
+ ```
+    index(file_names) | sentiment | processed_string
+ ```
+
+Another data frame is formed `frequency_data_frame`. This data frame stores the frequency of each word occuring in files with negative sentiment as well as possitive<br>
+The format of this is like
+```
+    index(words) |  neg         |   pos
+    word1           frequency1      frequency2
+    ...
+    ...
+
+    where frequency1 is number of times word1 occured in file with negative sentiment
+    frequency2 is number of times word1 occured in file with positive sentiment
+```
+
+The command that is required to run this is
+```
+    [Format]
+    python -m pre_process.processing_functions <raw_review_csv_locaiton> <processed_test_csv_location> <frequency_test_csv_location>
+
+    [Command I ran]
+    python -m pre_process.processing_functions form_data/dataframe/train/raw_train.csv form_data/dataframe/train/processed_train.csv form_data/dataframe/train/frequency_train.csv
+
+    [Note]
+    Time taken to run this command
+        for training data -> 4 min 36 secs
+        for testing data  -> 1 min 28 secs
+```
+
+## Classification
+For classification I used the `sklearn` library. Naive Bayes is implemented here however one can implement anyother classifier as well without changing the rest of the code<br>
+### naviebayes_classification.py
+Script that used the `sklearn` implementation on our data to classify it.<br>
+Now since 
