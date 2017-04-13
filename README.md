@@ -73,9 +73,20 @@ The dataframe is something like
 The use of the dataframe is so that we can get all the filenames correspoding to a sentiment. This is used furted down the line inorder to extract some more information<br>
 This module also has a function `read_pandas_raw_csv` which is used extensively through out the code. This basically converts csv file to pandas dataframe with appopriate headers and labels<br>
 
+The command that is run is
+```
+    python -m form_data.pandas_functions form_data/dataframe/raw_review.csv form_data/dataframe/sentiment_filenames.csv
+```
+
 Another funtion in this module is `form_processed_word_frequency_data_frame`. This function is used to form a dataframe from a given dict of the form
 ```
     {'neg' : {word : frequency,..}, 'pos' : {word:frequency,..}}
 ```
 <br>
-Both the above stated functions `read_pandas_raw_csv` and `form_processed_word_frequency_data_frame` are not used in this 
+Both the above stated functions `read_pandas_raw_csv` and `form_processed_word_frequency_data_frame` are not used in this particular file but these are imported by other modules<br>
+
+### form_train_test.py
+This is the code that is run inorder to form the training and the testing set from the `raw_reviews.csv` file or data frame<br>
+Let us say we want a training 70% testing 30% of the data.(code is hard coded for this %). Let the total size be N. 
+First the `sentiment_filnames.csv` is read and converted to a dataframe. From here we choose randomly <b>with a seed<b> N*0.7*0.5 from files with positive sentiment and rest from negative sentiment.
+
