@@ -26,7 +26,7 @@ def append_prediction_to_data_frame(classifier, test_data_frame):
     """
     example_counts = count_vectorizer.transform(test_data_frame['processed_words'].values)
     predictions = classifier.predict(example_counts)
-    test_data_frame['prediction'] = map(unicode, predictions)
+    test_data_frame['prediction_nb'] = map(unicode, predictions)
 
     return test_data_frame
 
