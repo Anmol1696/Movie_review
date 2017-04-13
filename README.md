@@ -217,3 +217,22 @@ For pre-processing, a threshold can be set, such that we consider only the words
 
 ## Reference
 One can find all the references in the `refrence.txt` file
+
+## Commands Run
+The following are all the commands that were run indoer to get the results
+```
+    python -m form_data.init_data movie_data/ form_data/dataframe/raw_review.csv
+    
+    python -m form_data.pandas_functions form_data/dataframe/raw_review.csv form_data/dataframe/sentiment_filenames.csv
+    
+    python -m form_data.form_train_test form_data/dataframe/raw_review.csv form_data/dataframe/sentiment_filenames.csv form_data/dataframe/train/raw_train.csv form_data/dataframe/test/raw_test.csv 15
+    
+    python -m pre_process.processing_functions form_data/dataframe/train/raw_train.csv form_data/dataframe/train/processed_train.csv form_data/dataframe/train/frequency_train.csv
+
+    python -m pre_process.processing_functions form_data/dataframe/train/raw_train.csv form_data/dataframe/test/processed_test.csv form_data/dataframe/test/frequency_test.csv
+
+    python -m classification.naviebayes_classification form_data/dataframe/train/processed_train.csv form_data/dataframe/train/processed_train.csv True
+
+    python -m classification.naviebayes_classification form_data/dataframe/train/processed_train.csv form_data/dataframe/test/processed_test.csv True
+```
+After all these commands the cofusion matrix will be printed and the roc curve will pop up in matplotlib window, save it if you wish that
