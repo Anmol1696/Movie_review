@@ -149,9 +149,60 @@ The command that is required to run this is
         for training data -> 4 min 36 secs
         for testing data  -> 1 min 28 secs
 ```
+Note one has to preprocess both training as well as the testing data. So the same command is run of the testing folder as well<br>
 
 ## Classification
 For classification I used the `sklearn` library. Naive Bayes is implemented here however one can implement anyother classifier as well without changing the rest of the code<br>
 ### naviebayes_classification.py
 Script that used the `sklearn` implementation on our data to classify it.<br>
-Now since 
+Now since we have the training data which is preprocessed, we load the `processed_words` and the `sentiment` columns in the `sklearn.naive_bayes.MultinomialNB` function that performs multinomial navie bayes. We then end up with a classifier<br>
+Then we load the testing data's `processed_words` into the classifier and obtain the predictions<br>
+These predictions are then appended to the testing data frame as `prediction_nb` column.<br>
+Now the testing data frame is of the form
+```
+    index(word) | sentiment | processed_words | prediction_nb
+```
+Then the testing data frame is writen back, if the writing boolean `write_back_to_file` is set to True, to `processed_test.csv`, which was the original testing data framw csv file without the new column<br>
+
+The command that is used to run this is
+```
+    [Format]
+    python -m classification.naviebayes_classification <training_data_csv> <testing_data_csv> <write_back_to_file>
+
+    [Command that I ran]
+    python -m classification.naviebayes_classification form_data/dataframe/train/processed_train.csv form_data/dataframe/test/processed_test.csv True
+
+    [Note]
+    Time taken to run -> 2 sec approx for both cases i.e. testing_data = testing_data and testing_data = training_data
+```
+
+####Crossvalidation
+For this the testing data is same as the training data. So in the above command just make `<training_data_csv>` same as `<testing_data_csv>`<br>
+
+Apart from these the script also forms the `confusion_matrix` as well as the `roc_curve` This is discuss this in the Result section<br>
+
+## Results
+When we run the classifier we get also find out the Confusion matrix and the ROC curve. For the `random_seed = 15` I obtain a particular set of testing and traing data. The results are for that set.<br>
+
+### Confusion Matrix
+For the cross validation set I obtain the confusion matrix to be
+```
+        pos | neg
+    pos 674   26
+    neg 9     691
+```
+When the testing set is the actual testing set we obtain the following matrix
+```
+        pos | neg
+    pos 229   71
+    neg 55    245
+```
+
+### ROC curve
+The roc curve obtained from crossvalidation<br>
+![ROC curve for cross validation](form_data/dataframe/train/figure_1.png)
+For this curve we get `AUC = 1`<br>
+
+The ROC curve for testing set<br>
+![ROC curve for testing set](form_data/dataframe/test/figure_1.png)
+
