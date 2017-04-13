@@ -3,3 +3,4 @@ https://de.dariah.eu/tatom/preprocessing.html
 http://www.nltk.org/howto/collocations.html
 http://pandas.pydata.org/pandas-docs/stable/index.html
 http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
+https://datamize.wordpress.com/2015/01/24/how-to-plot-a-roc-curve-in-scikit-learn/
