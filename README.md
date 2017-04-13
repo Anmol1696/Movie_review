@@ -229,7 +229,7 @@ The following are all the commands that were run indoer to get the results
     
     python -m pre_process.processing_functions form_data/dataframe/train/raw_train.csv form_data/dataframe/train/processed_train.csv form_data/dataframe/train/frequency_train.csv
 
-    python -m pre_process.processing_functions form_data/dataframe/train/raw_train.csv form_data/dataframe/test/processed_test.csv form_data/dataframe/test/frequency_test.csv
+    python -m pre_process.processing_functions form_data/dataframe/test/raw_test.csv form_data/dataframe/test/processed_test.csv form_data/dataframe/test/frequency_test.csv
 
     python -m classification.naviebayes_classification form_data/dataframe/train/processed_train.csv form_data/dataframe/train/processed_train.csv True
 
