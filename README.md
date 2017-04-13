@@ -87,6 +87,6 @@ Both the above stated functions `read_pandas_raw_csv` and `form_processed_word_f
 
 ### form_train_test.py
 This is the code that is run inorder to form the training and the testing set from the `raw_reviews.csv` file or data frame<br>
-Let us say we want a training 70% testing 30% of the data.(code is hard coded for this %). Let the total size be N. 
-First the `sentiment_filnames.csv` is read and converted to a dataframe. From here we choose randomly <b>with a seed<b> N*0.7*0.5 from files with positive sentiment and rest from negative sentiment.
+Let us say we want a training 70% testing 30% of the data.(code is hard coded for this %). Let the total size be N.<br> 
+First the `sentiment_filnames.csv` is read and converted to a dataframe. From here we choose randomly with seed.
 
