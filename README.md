@@ -5,7 +5,7 @@ Check this out on github [here](https://github.com/Anmol1696/Movie_review) or go
 
 ## Installing Libraries
 The following python were used. In order to install just type `sudo pip install <library>`
-+ pandas
+* pandas
 * matplotlib
 * numpy
 * sklearn
