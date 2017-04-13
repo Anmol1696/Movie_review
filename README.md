@@ -55,5 +55,5 @@ For obtaining `raw_review.csv` we run the following command
 ```
 
 #### NOTE
-Time taken to run the above program is around 8 secs
+<b>Time taken to run the above program is around 8 secs<b>
 
