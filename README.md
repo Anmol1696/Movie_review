@@ -200,9 +200,17 @@ When the testing set is the actual testing set we obtain the following matrix
 
 ### ROC curve
 The roc curve obtained from crossvalidation<br>
-![ROC curve for cross validation](form_data/dataframe/train/figure_1.png)
+![ROC curve for cross validation](form_data/dataframe/train/figure_1.png)<br>
 For this curve we get `AUC = 1`<br>
 
 The ROC curve for testing set<br>
-![ROC curve for testing set](form_data/dataframe/test/figure_1.png)
+![ROC curve for testing set](form_data/dataframe/test/figure_1.png)<br>
+For this curve we get `AUC = 0.86`<br>
 
+## Conclusions
+Hence the accuracy of the pretty nice<br>
+The reason I think other classifiers like SVM might not do better then this is that the data that we get is text. The tendency for it being sparse is very high. Some classifiers might not be able to give good resuls for sparse dataset<br>
+However we can increase the effiency by using better pre processing. We could use bi-gram and tri-gram models to make better our processed data<br>
+More data always help. It might also solve the problem of sparsity to better fit with other models<br>
+One can also use the `frequency_data_frame` to comeup with our own classifier<br>
+For pre-processing, a threshold can be set, such that we consider only the words that have a higer frequency in all of the training data for the predection model. This will reduce the noise greatly<br>
