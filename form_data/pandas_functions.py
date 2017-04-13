@@ -26,7 +26,7 @@ def form_sentiment_vs_file_name_data_frame(data_frame, write_to_file):
 
     sentiment_data_frame = pandas.DataFrame(temp_dict)
 
-    if write_to_file:
+    if write_to_file != 'False':
         sentiment_data_frame.to_csv(write_to_file)
 
 def form_processed_word_frequency_data_frame(processed_words_frequency_dict):
