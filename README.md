@@ -216,7 +216,15 @@ For this curve we get `AUC = 0.86`<br>
 * For pre-processing, a threshold can be set, such that we consider only the words that have a higer frequency in all of the training data for the predection model. This will reduce the noise greatly<br>
 
 ## Reference
-One can find all the references in the `refrence.txt` file
+Some of the references that I used are bellow
++ http://www.textfixer.com/tutorials/common-english-words.txt
++ https://de.dariah.eu/tatom/preprocessing.html
++ http://www.nltk.org/howto/collocations.html
++ http://pandas.pydata.org/pandas-docs/stable/index.html
++ http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
++ https://datamize.wordpress.com/2015/01/24/how-to-plot-a-roc-curve-in-scikit-learn/
+
+Also I would like to state [stackoverflow](http://stackoverflow.com/) was used extensively
 
 ## Commands Run
 The following are all the commands that were run indoer to get the results
