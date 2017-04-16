@@ -1,7 +1,8 @@
-# Movie_review
+#
+Movie_review
 ## Problem Statement
-I have solved the Problem Statement B<br>
 Check this out on github [here](https://github.com/Anmol1696/Movie_review) or go to https://github.com/Anmol1696/Movie_review<br>
+Given a set of negative and positive movie reviews, we train a navie bayes classifier on it. We then use k-fold cross validation to test our classifier with 70% training and 30% testing data.<br>
 
 ## Installing Libraries
 The following python were used. In order to install just type `sudo pip install <library>`
